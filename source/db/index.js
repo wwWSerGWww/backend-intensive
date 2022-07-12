@@ -1,34 +1,21 @@
 // Core
-import mongoose from 'mongoose';
-import dg from 'debug';
+import mongoose from 'mongoose'
+import dg from 'debug'
 
 // Instruments
-import { getDBUrl } from '../utils';
+import { getDBUrl } from '../utils/index.js'
 
-const debug = dg('db');
-const { DB_URL } = getDBUrl();
-
+const debugDB = dg('db')
+const DBUrl = getDBUrl()
 const mongooseOptions = {
-    promiseLibrary:     global.Promise,
-    poolSize:           50,
-    keepAlive:          30000,
-    connectTimeoutMS:   5000,
-    useNewUrlParser:    true,
-    useFindAndModify:   false,
-    useCreateIndex:     true,
-    useUnifiedTopology: true,
-    autoIndex:          false,
-};
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}
 
-const connection = mongoose.connect(
-    DB_URL,
-    mongooseOptions,
-);
+export const connection = mongoose.connect(DBUrl, mongooseOptions)
 
 connection
-    .then(() => {
-        debug('DB connected');
-    })
-    .catch(({ message }) => {
-        debug(`DB connected error ${message}`);
-    });
+  .then(() => {
+    debugDB('Conecting to DB')
+  })
+  .catch((error) => debugDB(`DB connected error: ${error.message}`))
