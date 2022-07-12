@@ -1,5 +1,5 @@
 export class NotFoundError extends Error {
-  constructor(message, statusCode) {
+  constructor(message, statusCode = 404) {
     super(message)
 
     if (typeof statusCode !== 'number') {

@@ -13,3 +13,23 @@ export const errorLogger = createLogger({
     new transports.File({ filename: 'logs/error.log', level: 'error' }),
   ],
 })
+export const notFoundErrorLogger = createLogger({
+  level: 'error',
+  format: combine(timestamp(), logFormat),
+  transports: [
+    new transports.File({
+      filename: 'logs/not_found_errors.log',
+      level: 'error',
+    }),
+  ],
+})
+export const validationErrorLogger = createLogger({
+  level: 'error',
+  format: combine(timestamp(), logFormat),
+  transports: [
+    new transports.File({
+      filename: 'logs/validation_errors.log',
+      level: 'error',
+    }),
+  ],
+})
