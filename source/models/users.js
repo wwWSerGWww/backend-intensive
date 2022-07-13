@@ -8,8 +8,24 @@ export class Users {
     const data = await users.create(this.data)
     return data
   }
-  async find() {
-    const data = await users.find({})
-    return data
-  }
+}
+
+export const find = async () => {
+  const data = await users.find()
+  return data
+}
+
+export const findByID = async (id) => {
+  const data = await users.findById(id)
+  return data
+}
+
+export const findByIdAndUpdate = async (id, obj) => {
+  const data = await users.findByIdAndUpdate(id, obj, { new: true })
+  return data
+}
+
+export const findByIdAndDelete = async (id) => {
+  const data = await users.findByIdAndDelete(id)
+  return data
 }

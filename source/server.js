@@ -37,8 +37,6 @@ app.use('/users', routers.users)
 app.use('/classes', routers.classes)
 app.use('/lessons', routers.lessons)
 
-// app.use(session(sessionOptions))
-
 app.use('*', (req, res, next) => {
   throw new NotFoundError(`Page ${req.baseUrl} not found`, 404)
 })

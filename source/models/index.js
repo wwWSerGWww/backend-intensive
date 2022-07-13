@@ -1,1 +1,5 @@
 export { Users } from './users.js'
+export { find } from './users.js'
+export { findByID } from './users.js'
+export { findByIdAndUpdate } from './users.js'
+export { findByIdAndDelete } from './users.js'

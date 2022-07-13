@@ -28,6 +28,7 @@ const userSchema = new mongoose.Schema(
       index: { type: 'text' },
     },
     role: {
+      type: String,
       enum: ['newbie', 'student', 'teacher'],
     },
   },
