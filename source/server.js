@@ -15,13 +15,6 @@ import {
 //Error
 import { NotFoundError } from './utils/errors/index.js'
 
-// import session from 'express-session';
-
-// Instruments
-// import {
-//     sessionOptions,
-// } from './utils';
-
 const app = express()
 
 app.use(express.json())
@@ -32,6 +25,7 @@ if (process.env.NODE_ENV === 'development') {
     logger.debug({
       method: req.method,
       payload: req.body,
+      url: req.url,
     })
     next()
   })

@@ -3,9 +3,8 @@ import { createLogger, format, transports } from 'winston'
 const { combine, timestamp, printf } = format
 
 const logFormat = printf(({ message, timestamp }) => {
-  return `  1.${message.method}
-  2.${timestamp}
-  3.${JSON.stringify(message.payload)}`
+  return `${timestamp} method: ${message.method} URL: ${message.url}
+  ${JSON.stringify(message.payload)}`
 })
 
 export const logger = createLogger({
